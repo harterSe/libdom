@@ -50,6 +50,7 @@ dom_exception _dom_event_initialise(dom_event *evt)
 	evt->prevent_default = false;
 	evt->custom = false;
 
+	evt->charCode = -1;
 	evt->type = NULL;
 
 	evt->namespace = NULL;
@@ -259,6 +260,18 @@ dom_exception _dom_event_init(dom_event *evt, dom_string *type,
 	evt->timestamp = time(NULL);
 
 	return DOM_NO_ERR;
+}
+
+dom_exception _dom_event_init_with_key(dom_event *evt, dom_string *type,
+                             bool bubble, bool cancelable, uint32_t key)
+{
+       evt->type = dom_string_ref(type);
+       evt->bubble = bubble;
+       evt->cancelable = cancelable;
+       evt->charCode = key;
+       evt->timestamp = time(NULL);
+
+       return DOM_NO_ERR;
 }
 
 /**

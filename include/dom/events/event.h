@@ -61,6 +61,11 @@ dom_exception _dom_event_get_timestamp(dom_event *evt,
 #define dom_event_get_timestamp(e, t) _dom_event_get_timestamp(\
 		(dom_event *) (e), (unsigned int *) (t))
 
+dom_exception _dom_event_get_charCode(dom_event *evt,
+                                     unsigned int *charCode);
+#define dom_event_get_charCode(e, c) _dom_event_get_charCode(\
+               (dom_event *) (e), (unsigned int *) (c))
+
 dom_exception _dom_event_stop_propagation(dom_event *evt);
 #define dom_event_stop_propagation(e) _dom_event_stop_propagation(\
 		(dom_event *) (e))
@@ -73,6 +78,12 @@ dom_exception _dom_event_init(dom_event *evt, dom_string *type,
 		bool bubble, bool cancelable);
 #define dom_event_init(e, t, b, c) _dom_event_init((dom_event *) (e), \
 		(dom_string *) (t), (bool) (b), (bool) (c))
+
+dom_exception _dom_event_init_with_key(dom_event *evt, dom_string *type,
+                bool bubble, bool cancelable, uint32_t key);
+#define dom_event_init_with_key(e, t, b, c, k) \
+                _dom_event_init_with_key((dom_event *) (e), \
+               (dom_string *) (t), (bool) (b), (bool) (c), (uint32_t) (k))
 
 dom_exception _dom_event_get_namespace(dom_event *evt,
 		dom_string **namespace);

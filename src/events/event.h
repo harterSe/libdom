@@ -33,6 +33,7 @@ struct dom_event {
 	bool cancelable;	/**< Whether this event is cancelable */
 	unsigned int timestamp;
 			/**< The timestamp this event is created */
+	uint32_t charCode;
 
 	dom_string *namespace;	/**< The namespace of this event */
 
