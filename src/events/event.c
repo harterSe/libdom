@@ -215,6 +215,13 @@ dom_exception _dom_event_get_timestamp(dom_event *evt, unsigned int *timestamp)
 	return DOM_NO_ERR;
 }
 
+dom_exception _dom_event_get_charCode(dom_event *evt, unsigned int *charCode)
+{
+    *charCode = evt->charCode;
+    return DOM_NO_ERR;
+}
+
+
 /**
  * Stop propagation of the event
  *
